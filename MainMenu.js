@@ -2,6 +2,7 @@
 IdiomApp.MainMenu = function (game) {
 
 	this.playButton = null;
+	this.quizButton = null;
 
 };
 
@@ -16,6 +17,9 @@ IdiomApp.MainMenu.prototype = {
 		
 		this.playButton = this.add.button(this.world.centerX, 300, 'playBtn', this.startGame, this);
 		this.playButton.anchor.setTo(0.5);
+		
+		this.quizButton = this.add.button(this.world.centerX, 410, "gotoQuizBtn", this.gotoQuiz, this);
+		this.quizButton.anchor.setTo(0.5);
 
 	},
 
@@ -23,6 +27,10 @@ IdiomApp.MainMenu.prototype = {
 
 		//	Do some nice funky main menu effect here
 
+	},
+	
+	gotoQuiz: function() {
+		this.state.start("Quiz");
 	},
 
 	startGame: function (pointer) {

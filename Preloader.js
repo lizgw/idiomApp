@@ -21,6 +21,7 @@ IdiomApp.Preloader.prototype = {
 		this.load.image('playBtn', 'assets/btn_play.png');
 		this.load.image("nextBtn", "assets/btn_next.jpg");
 		this.load.image("gotoQuizBtn", "assets/btn_gotoquiz.jpg");
+		this.load.image("gotoMenuBtn", "assets/btn_gotomenu.png");
 	},
 
 	create: function () {

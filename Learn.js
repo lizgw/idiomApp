@@ -56,7 +56,7 @@ IdiomApp.Learn.prototype = {
     },
 	
 	nextIdiom: function (pointer) {
-		idiomNum++
+		idiomNum++;
 		if (idiomNum < IdiomApp.idiomsList.length) {
 			idiomText.text = IdiomApp.idiomsList[idiomNum];
 			defText.text = IdiomApp.defintionsList[idiomNum];
