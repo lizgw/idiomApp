@@ -28,13 +28,15 @@ IdiomApp.Learn = function (game) {
 
 var idiomText;
 var defText;
-var idiomNum = 0;
+var idiomNum;
 
 var nextBtn;
 
 IdiomApp.Learn.prototype = {
 	create: function () {
 		this.stage.backgroundColor = "#eddaff";
+		
+		idiomNum = 0;
 		
 		var idiomStyle = { font: "65px Arial", fill: "#664bd8", align: "center" };
 		var defStyle = { font: "42px Arial", fill: "#36218e", align: "center" };
@@ -47,12 +49,6 @@ IdiomApp.Learn.prototype = {
 		
 		nextBtn = this.add.button(this.world.centerX, 400, "nextBtn", this.nextIdiom, this);
 		nextBtn.anchor.setTo(0.5);
-    },
-
-    update: function () {
-
-        
-
     },
 	
 	nextIdiom: function (pointer) {

@@ -9,6 +9,8 @@ IdiomApp.Quiz.prototype = {
 	create: function() {
 		this.stage.backgroundColor = "#fff1f9";
 		
+		idiomNum = 0;
+		
 		idiomText = this.add.text(this.world.centerX, 100, IdiomApp.idiomsList[idiomNum]);
 		idiomText.anchor.setTo(0.5);
 		
