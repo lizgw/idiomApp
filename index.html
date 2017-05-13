@@ -7,7 +7,8 @@
 	<script src="Boot.js"></script>
 	<script src="Preloader.js"></script>
 	<script src="MainMenu.js"></script>
-	<script src="Game.js"></script>
+	<script src="Learn.js"></script>
+	<script src="Quiz.js"></script>
 </head>
 <body>
 
@@ -23,7 +24,8 @@ window.onload = function() {
 	game.state.add('Boot', IdiomApp.Boot);
 	game.state.add('Preloader', IdiomApp.Preloader);
 	game.state.add('MainMenu', IdiomApp.MainMenu);
-	game.state.add('Game', IdiomApp.Game);
+	game.state.add('Game', IdiomApp.Learn);
+	game.state.add("Quiz", IdiomApp.Quiz);
 
 	//	Now start the Boot state.
 	game.state.start('Boot');

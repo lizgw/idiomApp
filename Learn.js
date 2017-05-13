@@ -1,5 +1,5 @@
 
-IdiomApp.Game = function (game) {
+IdiomApp.Learn = function (game) {
 
     //  When a State is added to Phaser it automatically has the following properties set on it, even if they already exist:
 
@@ -30,7 +30,9 @@ var idiomText;
 var defText;
 var idiomNum = 0;
 
-IdiomApp.Game.prototype = {
+var nextBtn;
+
+IdiomApp.Learn.prototype = {
 	create: function () {
 		this.stage.backgroundColor = "#eddaff";
 		
@@ -43,13 +45,13 @@ IdiomApp.Game.prototype = {
 		defText = this.add.text(this.world.centerX, 300, IdiomApp.defintionsList[idiomNum], defStyle);
 		defText.anchor.setTo(0.5);
 		
-		var nextBtn = this.add.button(this.world.centerX, 400, "nextBtn", this.nextIdiom, this);
+		nextBtn = this.add.button(this.world.centerX, 400, "nextBtn", this.nextIdiom, this);
 		nextBtn.anchor.setTo(0.5);
     },
 
     update: function () {
 
-        //  Honestly, just about anything could go here. It's YOUR game after all. Eat your heart out!
+        
 
     },
 	
@@ -60,8 +62,14 @@ IdiomApp.Game.prototype = {
 			defText.text = IdiomApp.defintionsList[idiomNum];
 		} else {
 			console.log("that's all!");
+			var finishBtn = this.add.button(this.world.centerX, 400, "gotoQuizBtn", this.gotoQuiz, this);
+			finishBtn.anchor.setTo(0.5);
 		}
 		
+	},
+	
+	gotoQuiz: function (pointer) {
+		this.state.start("Quiz");
 	},
 
     quitGame: function (pointer) {
