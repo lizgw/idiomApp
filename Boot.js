@@ -5,7 +5,12 @@ var IdiomApp = {
 		"To sit tight",
 		"To have a sweet tooth",
 		"To pull the plug",
-		"Ballpark figure"
+		"Ballpark figure",
+		"It's raining cats and dogs!",
+		"To feel under the weather",
+		"A piece of cake",
+		"Swamped",
+		"To hit the hay"
 	],
 	defintionsList: [
 		"To die",
@@ -13,7 +18,12 @@ var IdiomApp = {
 		"To wait",
 		"To want dessert/something sweet",
 		"To stop something",
-		"An estimate"
+		"An estimate",
+		"It's raining a lot!",
+		"To feel sick",
+		"A task that is easy to do",
+		"Very busy",
+		"To go to sleep"
 	]
 };
 
@@ -24,7 +34,6 @@ IdiomApp.Boot = function (game) {
 IdiomApp.Boot.prototype = {
 
     init: function () {
-
         //  Unless you specifically know your game needs to support multi-touch I would recommend setting this to 1
         this.input.maxPointers = 1;
 
