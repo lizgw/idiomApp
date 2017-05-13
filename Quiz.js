@@ -16,13 +16,15 @@ IdiomApp.Quiz.prototype = {
 		
 		this.createChoices();
 		this.generateChoices();
+		
+		var menuBtn = this.add.button(this.world.centerX, 510, "gotoMenuBtn", this.gotoMenu, this);
+		menuBtn.anchor.setTo(0.5);
 	},
 	
 	createChoices: function() {
 		for (i = 0; i < 3; i++) {
 			choices[i] = this.add.text(50, 200 + 50 * i, "");
 			choices[i].inputEnabled = true;
-			//choices[i].events.onInputDown.add(this.checkAnswer, this, 0, choices[i].text);
 		}
 	},
 	

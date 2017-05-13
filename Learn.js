@@ -49,6 +49,9 @@ IdiomApp.Learn.prototype = {
 		
 		nextBtn = this.add.button(this.world.centerX, 400, "nextBtn", this.nextIdiom, this);
 		nextBtn.anchor.setTo(0.5);
+		
+		var menuBtn = this.add.button(this.world.centerX, 510, "gotoMenuBtn", this.gotoMenu, this);
+		menuBtn.anchor.setTo(0.5);
     },
 	
 	nextIdiom: function (pointer) {
@@ -68,14 +71,8 @@ IdiomApp.Learn.prototype = {
 		this.state.start("Quiz");
 	},
 
-    quitGame: function (pointer) {
-
-        //  Here you should destroy anything you no longer need.
-        //  Stop music, delete sprites, purge caches, free resources, all that good stuff.
-
-        //  Then let's go back to the main menu.
-        this.state.start('MainMenu');
-
-    }
+    gotoMenu: function (pointer) {
+		this.state.start("MainMenu");
+	}
 
 };
