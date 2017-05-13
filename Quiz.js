@@ -75,9 +75,16 @@ IdiomApp.Quiz.prototype = {
 			} else {
 				frontProgressBar.width = 700;
 				percentage.text = "100%"
+				this.disableInput();
 			}
 		} else {
 			textObj.setStyle(incorrectStyle);
+		}
+	},
+	
+	disableInput: function() {
+		for (i = 0; i < choices.length; i++) {
+			choices[i].inputEnabled = false;
 		}
 	},
 	
