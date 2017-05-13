@@ -9,13 +9,12 @@ IdiomApp.Preloader = function (game) {
 IdiomApp.Preloader.prototype = {
 
 	preload: function () {
+		this.stage.backgroundColor = "#ffffff";
 
 		//	set assets for preloader
-		//this.background = this.add.sprite(0, 0, 'preloaderBackground');
-		//this.preloadBar = this.add.sprite(300, 400, 'preloaderBar');
-
-		//	This sets the preloadBar sprite as a loader sprite
-		//this.load.setPreloadSprite(this.preloadBar);
+		this.preloadBar = this.add.sprite(this.world.centerX, this.world.centerY, 'preloaderBar');
+		this.preloadBar.anchor.setTo(0.5);
+		this.load.setPreloadSprite(this.preloadBar);
 		
 		// webfont script
 		this.load.script('webfont', 'http://ajax.googleapis.com/ajax/libs/webfont/1.4.7/webfont.js');
