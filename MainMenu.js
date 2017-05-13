@@ -13,7 +13,7 @@ IdiomApp.MainMenu.prototype = {
 		this.background = this.add.sprite(0, 0, "gradientBkgd");
 		
 		var style = { font: "65px Baloo", fill: "#ffffff", align: "center" };
-		var text = this.add.text(Math.round(this.world.centerX), 100, "Idiom App", style);
+		var text = this.add.text(Math.round(this.world.centerX), 100, "Idioms!", style);
 		text.anchor.setTo(0.5);
 		
 		this.playButton = this.add.button(this.world.centerX, 300, 'learnBtn', this.startGame, this);

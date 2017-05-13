@@ -8,6 +8,7 @@ var choiceStyle;
 
 var frontProgressBar;
 var percentage;
+var incorrectStyle = {font: "42px Baloo", fill: "#de3939"};
 
 IdiomApp.Quiz.prototype = {
 	create: function() {
@@ -59,13 +60,14 @@ IdiomApp.Quiz.prototype = {
 		for (i = 0; i < 3; i++) {
 			choices[i].text = answerChoices[i];
 			choices[i].events.onInputDown.removeAll(this);
-			choices[i].events.onInputDown.add(this.checkAnswer, this, 0, choices[i].text);
+			choices[i].events.onInputDown.add(this.checkAnswer, this, 0, choices[i]);
+			choices[i].setStyle(choiceStyle);
 		}
 	},
 	
-	checkAnswer: function(pointer, obj, defText) {
-		console.log("check " + defText);
-		if (defText == IdiomApp.defintionsList[idiomNum]) {
+	checkAnswer: function(pointer, obj, textObj) {
+		console.log("check " + textObj.text);
+		if (textObj.text == IdiomApp.defintionsList[idiomNum]) {
 			console.log("yes!");
 			idiomNum++;
 			if (idiomNum < IdiomApp.defintionsList.length) {
@@ -80,6 +82,7 @@ IdiomApp.Quiz.prototype = {
 			}
 		} else {
 			console.log("no!");
+			textObj.setStyle(incorrectStyle);
 		}
 	},
 	
