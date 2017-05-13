@@ -19,16 +19,16 @@ IdiomApp.Quiz.prototype = {
 		
 		idiomNum = 0;
 		
-		idiomText = this.add.text(this.world.centerX, 100, IdiomApp.idiomsList[idiomNum], idiomStyle);
-		idiomText.anchor.setTo(0.5);
-		
-		this.createChoices();
-		this.generateChoices();
-		
 		var menuText = this.add.text(725, 20, "Quit to Menu", {font: "24px Baloo", fill: "#ffffff"});
 		menuText.anchor.setTo(0.5);
 		menuText.inputEnabled = true;
 		menuText.events.onInputDown.add(this.gotoMenu, this);
+		
+		idiomText = this.add.text(this.world.centerX, 100, IdiomApp.idiomsList[idiomNum], idiomStyle);
+		idiomText.anchor.setTo(0.5);
+		
+		this.initChoices();
+		this.generateChoices();
 		
 		var backProgressBar = this.add.sprite(50, 550, "progressEmpty");
 		frontProgressBar = this.add.sprite(50, 550, "progressFilled");
@@ -38,7 +38,7 @@ IdiomApp.Quiz.prototype = {
 		percentage.anchor.setTo(0.5);
 	},
 	
-	createChoices: function() {
+	initChoices: function() {
 		for (i = 0; i < 3; i++) {
 			choices[i] = this.add.text(50, 200 + 50 * i, "", choiceStyle);
 			choices[i].inputEnabled = true;
@@ -55,7 +55,6 @@ IdiomApp.Quiz.prototype = {
 		var correctDef = IdiomApp.defintionsList[idiomNum];
 		
 		var answerChoices = [randDef1, randDef2, correctDef];
-		console.log(answerChoices);
 		
 		for (i = 0; i < 3; i++) {
 			choices[i].text = answerChoices[i];
@@ -66,9 +65,7 @@ IdiomApp.Quiz.prototype = {
 	},
 	
 	checkAnswer: function(pointer, obj, textObj) {
-		console.log("check " + textObj.text);
 		if (textObj.text == IdiomApp.defintionsList[idiomNum]) {
-			console.log("yes!");
 			idiomNum++;
 			if (idiomNum < IdiomApp.defintionsList.length) {
 				frontProgressBar.width = 700 / IdiomApp.idiomsList.length * idiomNum;
@@ -78,10 +75,8 @@ IdiomApp.Quiz.prototype = {
 			} else {
 				frontProgressBar.width = 700;
 				percentage.text = "100%"
-				console.log("the end!");
 			}
 		} else {
-			console.log("no!");
 			textObj.setStyle(incorrectStyle);
 		}
 	},

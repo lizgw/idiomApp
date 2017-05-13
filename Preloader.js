@@ -1,9 +1,6 @@
-
 IdiomApp.Preloader = function (game) {
-
 	this.background = null;
 	this.preloadBar = null;
-
 };
 
 IdiomApp.Preloader.prototype = {
