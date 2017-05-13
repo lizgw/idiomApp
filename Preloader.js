@@ -19,6 +19,7 @@ IdiomApp.Preloader.prototype = {
 
 		// load assets
 		this.load.image('playBtn', 'assets/btn_play.png');
+		this.load.image("nextBtn", "assets/btn_next.jpg");
 	},
 
 	create: function () {

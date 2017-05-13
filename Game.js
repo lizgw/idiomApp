@@ -22,14 +22,29 @@ IdiomApp.Game = function (game) {
 
     //  You can use any of these from any function within this State.
     //  But do consider them as being 'reserved words', i.e. don't create a property for your own game called "world" or you'll over-write the world reference.
-
+	
+	
 };
 
+var idiomText;
+var defText;
+var idiomNum = 0;
+
 IdiomApp.Game.prototype = {
-
-    create: function () {
+	create: function () {
 		this.stage.backgroundColor = "#eddaff";
-
+		
+		var idiomStyle = { font: "65px Arial", fill: "#664bd8", align: "center" };
+		var defStyle = { font: "42px Arial", fill: "#36218e", align: "center" };
+		
+		idiomText = this.add.text(this.world.centerX, 100, IdiomApp.idiomsList[idiomNum], idiomStyle);
+		idiomText.anchor.setTo(0.5);
+		
+		defText = this.add.text(this.world.centerX, 300, IdiomApp.defintionsList[idiomNum], defStyle);
+		defText.anchor.setTo(0.5);
+		
+		var nextBtn = this.add.button(this.world.centerX, 400, "nextBtn", this.nextIdiom, this);
+		nextBtn.anchor.setTo(0.5);
     },
 
     update: function () {
@@ -37,6 +52,17 @@ IdiomApp.Game.prototype = {
         //  Honestly, just about anything could go here. It's YOUR game after all. Eat your heart out!
 
     },
+	
+	nextIdiom: function (pointer) {
+		idiomNum++
+		if (idiomNum < IdiomApp.idiomsList.length) {
+			idiomText.text = IdiomApp.idiomsList[idiomNum];
+			defText.text = IdiomApp.defintionsList[idiomNum];
+		} else {
+			console.log("that's all!");
+		}
+		
+	},
 
     quitGame: function (pointer) {
 

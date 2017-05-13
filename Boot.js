@@ -1,4 +1,7 @@
-var IdiomApp = {};
+var IdiomApp = {
+	idiomsList: ["To kick the bucket", "To have a blast", "Sit tight"],
+	defintionsList: ["To die", "To have fun", "wait"]
+};
 
 IdiomApp.Boot = function (game) {
 
