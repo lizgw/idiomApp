@@ -4,26 +4,32 @@ var idiomText;
 var idiomNum;
 
 var choices = [];
+var choiceStyle;
 
 IdiomApp.Quiz.prototype = {
 	create: function() {
-		this.stage.backgroundColor = "#fff1f9";
+		var background = this.add.sprite(0, 0, "gradientBkgd");
+		
+		choiceStyle = { font: "42px Baloo", fill: "#ffffff", align: "center", wordWrap: "true", wordWrapWidth: "800" };
+		var idiomStyle = { font: "72px Baloo", fill: "#ffffff", align: "center", wordWrap: "true", wordWrapWidth: "800" };
 		
 		idiomNum = 0;
 		
-		idiomText = this.add.text(this.world.centerX, 100, IdiomApp.idiomsList[idiomNum]);
+		idiomText = this.add.text(this.world.centerX, 100, IdiomApp.idiomsList[idiomNum], idiomStyle);
 		idiomText.anchor.setTo(0.5);
 		
 		this.createChoices();
 		this.generateChoices();
 		
-		var menuBtn = this.add.button(this.world.centerX, 510, "gotoMenuBtn", this.gotoMenu, this);
-		menuBtn.anchor.setTo(0.5);
+		var menuText = this.add.text(725, 20, "Quit to Menu", {font: "24px Baloo", fill: "#ffffff"});
+		menuText.anchor.setTo(0.5);
+		menuText.inputEnabled = true;
+		menuText.events.onInputDown.add(this.gotoMenu, this);
 	},
 	
 	createChoices: function() {
 		for (i = 0; i < 3; i++) {
-			choices[i] = this.add.text(50, 200 + 50 * i, "");
+			choices[i] = this.add.text(50, 200 + 50 * i, "", choiceStyle);
 			choices[i].inputEnabled = true;
 		}
 	},
@@ -57,8 +63,6 @@ IdiomApp.Quiz.prototype = {
 				this.generateChoices();
 			} else {
 				console.log("the end!");
-				var menuButton = this.add.button(this.world.centerX, 500, "gotoMenuBtn", this.gotoMenu, this);
-				menuButton.anchor.setTo(0.5);
 			}
 		} else {
 			console.log("no!");

@@ -34,24 +34,26 @@ var nextBtn;
 
 IdiomApp.Learn.prototype = {
 	create: function () {
-		this.stage.backgroundColor = "#eddaff";
+	 	var background = this.add.sprite(0, 0, "gradientBkgd");
 		
 		idiomNum = 0;
 		
-		var idiomStyle = { font: "65px Arial", fill: "#664bd8", align: "center" };
-		var defStyle = { font: "42px Arial", fill: "#36218e", align: "center" };
+		var idiomStyle = { font: "72px Baloo", fill: "#ffffff", align: "center", wordWrap: "true", wordWrapWidth: "800" };
+		var defStyle = { font: "56px Baloo", fill: "#ffffff", align: "center", wordWrap: "true", wordWrapWidth: "800" };
 		
 		idiomText = this.add.text(this.world.centerX, 100, IdiomApp.idiomsList[idiomNum], idiomStyle);
 		idiomText.anchor.setTo(0.5);
 		
-		defText = this.add.text(this.world.centerX, 300, IdiomApp.defintionsList[idiomNum], defStyle);
+		defText = this.add.text(this.world.centerX, 220, IdiomApp.defintionsList[idiomNum], defStyle);
 		defText.anchor.setTo(0.5);
 		
 		nextBtn = this.add.button(this.world.centerX, 400, "nextBtn", this.nextIdiom, this);
 		nextBtn.anchor.setTo(0.5);
 		
-		var menuBtn = this.add.button(this.world.centerX, 510, "gotoMenuBtn", this.gotoMenu, this);
-		menuBtn.anchor.setTo(0.5);
+		var menuText = this.add.text(725, 20, "Quit to Menu", {font: "24px Baloo", fill: "#ffffff"});
+		menuText.anchor.setTo(0.5);
+		menuText.inputEnabled = true;
+		menuText.events.onInputDown.add(this.gotoMenu, this);
     },
 	
 	nextIdiom: function (pointer) {
