@@ -74,7 +74,7 @@ IdiomApp.Learn.prototype = {
 			percentage.text = Math.round(idiomNum / IdiomApp.idiomsList.length * 100) + "%"
 		} else {
 			console.log("that's all!");
-			frontProgressBar.width = 700 / IdiomApp.idiomsList.length * idiomNum;
+			frontProgressBar.width = 700;
 			percentage.text = "100%"
 			var finishBtn = this.add.button(this.world.centerX, 400, "gotoQuizBtn", this.gotoQuiz, this);
 			finishBtn.anchor.setTo(0.5);

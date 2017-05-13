@@ -6,6 +6,9 @@ var idiomNum;
 var choices = [];
 var choiceStyle;
 
+var frontProgressBar;
+var percentage;
+
 IdiomApp.Quiz.prototype = {
 	create: function() {
 		var background = this.add.sprite(0, 0, "gradientBkgd");
@@ -25,6 +28,13 @@ IdiomApp.Quiz.prototype = {
 		menuText.anchor.setTo(0.5);
 		menuText.inputEnabled = true;
 		menuText.events.onInputDown.add(this.gotoMenu, this);
+		
+		var backProgressBar = this.add.sprite(50, 550, "progressEmpty");
+		frontProgressBar = this.add.sprite(50, 550, "progressFilled");
+		frontProgressBar.width = 0;
+		
+		percentage = this.add.text(this.world.centerX, 530, "0%", {font: "32px Baloo", fill: "#53bbcd", align: "center"});
+		percentage.anchor.setTo(0.5);
 	},
 	
 	createChoices: function() {
@@ -59,9 +69,13 @@ IdiomApp.Quiz.prototype = {
 			console.log("yes!");
 			idiomNum++;
 			if (idiomNum < IdiomApp.defintionsList.length) {
+				frontProgressBar.width = 700 / IdiomApp.idiomsList.length * idiomNum;
+				percentage.text = Math.round(idiomNum / IdiomApp.idiomsList.length * 100) + "%"
 				this.generateQuestion();
 				this.generateChoices();
 			} else {
+				frontProgressBar.width = 700;
+				percentage.text = "100%"
 				console.log("the end!");
 			}
 		} else {
