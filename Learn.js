@@ -31,6 +31,8 @@ var defText;
 var idiomNum;
 
 var nextBtn;
+var frontProgressBar;
+var percentage;
 
 IdiomApp.Learn.prototype = {
 	create: function () {
@@ -54,6 +56,13 @@ IdiomApp.Learn.prototype = {
 		menuText.anchor.setTo(0.5);
 		menuText.inputEnabled = true;
 		menuText.events.onInputDown.add(this.gotoMenu, this);
+		
+		var backProgressBar = this.add.sprite(50, 550, "progressEmpty");
+		frontProgressBar = this.add.sprite(50, 550, "progressFilled");
+		frontProgressBar.width = 0;
+		
+		percentage = this.add.text(this.world.centerX, 530, "0%", {font: "32px Baloo", fill: "#53bbcd", align: "center"});
+		percentage.anchor.setTo(0.5);
     },
 	
 	nextIdiom: function (pointer) {
@@ -61,8 +70,12 @@ IdiomApp.Learn.prototype = {
 		if (idiomNum < IdiomApp.idiomsList.length) {
 			idiomText.text = IdiomApp.idiomsList[idiomNum];
 			defText.text = IdiomApp.defintionsList[idiomNum];
+			frontProgressBar.width = 700 / IdiomApp.idiomsList.length * idiomNum;
+			percentage.text = Math.round(idiomNum / IdiomApp.idiomsList.length * 100) + "%"
 		} else {
 			console.log("that's all!");
+			frontProgressBar.width = 700 / IdiomApp.idiomsList.length * idiomNum;
+			percentage.text = "100%"
 			var finishBtn = this.add.button(this.world.centerX, 400, "gotoQuizBtn", this.gotoQuiz, this);
 			finishBtn.anchor.setTo(0.5);
 		}

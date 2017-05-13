@@ -25,6 +25,8 @@ IdiomApp.Preloader.prototype = {
 		this.load.image("gotoQuizBtn", "assets/btn_quizMode.png");
 		this.load.image("gotoMenuBtn", "assets/btn_gotomenu.png");
 		this.load.image("gradientBkgd", "assets/bkgd.jpg");
+		this.load.image("progressEmpty", "assets/progress_small_empty.jpg");
+		this.load.image("progressFilled", "assets/progress_small_filled.jpg");
 	},
 
 	create: function () {
