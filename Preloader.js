@@ -23,6 +23,7 @@ IdiomApp.Preloader.prototype = {
 		this.load.image("gradientBkgd", "assets/bkgd.jpg");
 		this.load.image("progressEmpty", "assets/progress_small_empty.jpg");
 		this.load.image("progressFilled", "assets/progress_small_filled.jpg");
+		this.load.image("star", "assets/star.png");
 	},
 
 	create: function () {

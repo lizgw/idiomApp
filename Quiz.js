@@ -10,6 +10,8 @@ var frontProgressBar;
 var percentage;
 var incorrectStyle = { font: "42px Baloo", fill: "#de3939", align: "left", wordWrap: "true", wordWrapWidth: "750" };
 
+var emitter;
+
 IdiomApp.Quiz.prototype = {
 	create: function() {
 		var background = this.add.sprite(0, 0, "gradientBkgd");
@@ -36,6 +38,9 @@ IdiomApp.Quiz.prototype = {
 		
 		percentage = this.add.text(this.world.centerX, 530, "0%", {font: "32px Baloo", fill: "#53bbcd", align: "center"});
 		percentage.anchor.setTo(0.5);
+		
+		emitter = this.add.emitter(this.world.centerX, -10, 100);
+		emitter.makeParticles("star");
 	},
 	
 	initChoices: function() {
@@ -93,6 +98,7 @@ IdiomApp.Quiz.prototype = {
 				frontProgressBar.width = 700;
 				percentage.text = "100%"
 				this.disableInput();
+				this.win();
 			}
 		} else {
 			textObj.setStyle(incorrectStyle);
@@ -107,5 +113,12 @@ IdiomApp.Quiz.prototype = {
 	
 	gotoMenu: function() {
 		this.state.start("MainMenu");
+	},
+	
+	win: function() {
+		console.log("yay");
+		emitter.start(false, 5000, 20);
+		var congratsText = this.add.text(this.world.centerX, this.world.centerY, "You did it!", {font: "86px Baloo", fill: "#007d93", align: "center"});
+		congratsText.anchor.setTo(0.5);
 	}
 };

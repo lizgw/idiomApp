@@ -8,6 +8,8 @@ var nextBtn;
 var frontProgressBar;
 var percentage;
 
+var emitter;
+
 IdiomApp.Learn.prototype = {
 	create: function () {
 		var background = this.add.sprite(0, 0, "gradientBkgd");
@@ -37,6 +39,9 @@ IdiomApp.Learn.prototype = {
 		
 		percentage = this.add.text(this.world.centerX, 530, "0%", {font: "32px Baloo", fill: "#53bbcd", align: "center"});
 		percentage.anchor.setTo(0.5);
+		
+		emitter = this.add.emitter(this.world.centerX, -50, 100);
+		emitter.makeParticles("star");
     },
 	
 	nextIdiom: function (pointer) {
@@ -51,6 +56,7 @@ IdiomApp.Learn.prototype = {
 			percentage.text = "100%";
 			var finishBtn = this.add.button(this.world.centerX, 400, "gotoQuizBtn", this.gotoQuiz, this);
 			finishBtn.anchor.setTo(0.5);
+			this.win();
 		}
 		
 	},
@@ -61,6 +67,13 @@ IdiomApp.Learn.prototype = {
 
     gotoMenu: function (pointer) {
 		this.state.start("MainMenu");
+	},
+	
+	win: function() {
+		console.log("yay");
+		emitter.start(false, 5000, 20);
+		var congratsText = this.add.text(this.world.centerX, this.world.centerY, "You did it!", {font: "86px Baloo", fill: "#007d93", align: "center"});
+		congratsText.anchor.setTo(0.5);
 	}
 
 };
