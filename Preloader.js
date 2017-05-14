@@ -9,8 +9,7 @@ IdiomApp.Preloader.prototype = {
 		this.stage.backgroundColor = "#ffffff";
 
 		//	set assets for preloader
-		this.preloadBar = this.add.sprite(this.world.centerX, this.world.centerY, 'preloaderBar');
-		this.preloadBar.anchor.setTo(0.5);
+		this.preloadBar = this.add.sprite(50, this.world.centerY - 25, 'preloaderBar');
 		this.load.setPreloadSprite(this.preloadBar);
 		
 		// webfont script
