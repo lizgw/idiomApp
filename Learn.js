@@ -27,7 +27,7 @@ IdiomApp.Learn.prototype = {
 		idiomText = this.add.text(this.world.centerX, 100, IdiomApp.idiomsList[idiomNum], idiomStyle);
 		idiomText.anchor.setTo(0.5);
 		
-		defText = this.add.text(this.world.centerX, 220, IdiomApp.defintionsList[idiomNum], defStyle);
+		defText = this.add.text(this.world.centerX, 240, IdiomApp.defintionsList[idiomNum], defStyle);
 		defText.anchor.setTo(0.5);
 		
 		nextBtn = this.add.button(this.world.centerX, 400, "nextBtn", this.nextIdiom, this);
@@ -70,7 +70,6 @@ IdiomApp.Learn.prototype = {
 	},
 	
 	win: function() {
-		console.log("yay");
 		emitter.start(false, 5000, 20);
 		var congratsText = this.add.text(this.world.centerX, this.world.centerY, "You did it!", {font: "86px Baloo", fill: "#007d93", align: "center"});
 		congratsText.anchor.setTo(0.5);

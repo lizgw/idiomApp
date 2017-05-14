@@ -116,7 +116,6 @@ IdiomApp.Quiz.prototype = {
 	},
 	
 	win: function() {
-		console.log("yay");
 		emitter.start(false, 5000, 20);
 		var congratsText = this.add.text(this.world.centerX, this.world.centerY, "You did it!", {font: "86px Baloo", fill: "#007d93", align: "center"});
 		congratsText.anchor.setTo(0.5);

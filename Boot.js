@@ -55,14 +55,11 @@ IdiomApp.Boot.prototype = {
     init: function () {
         this.input.maxPointers = 1;
 
-        if (this.game.device.desktop) {
-            this.scale.pageAlignHorizontally = true;
-        } else {
-            this.scale.scaleMode = Phaser.ScaleManager.SHOW_ALL;
-            this.scale.setMinMax(400, 300, 800, 600);
-            this.scale.forceLandscape = true;
-            this.scale.pageAlignHorizontally = true;
-        }
+		this.scale.pageAlignHorizontally = true;
+		this.scale.scaleMode = Phaser.ScaleManager.SHOW_ALL;
+		this.scale.setMinMax(400, 300, 800, 600);
+		this.scale.forceLandscape = true;
+		this.scale.pageAlignHorizontally = true;
     },
 
     preload: function () {
