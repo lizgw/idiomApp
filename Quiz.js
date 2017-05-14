@@ -10,6 +10,8 @@ var frontProgressBar;
 var percentage;
 var incorrectStyle = {font: "42px Baloo", fill: "#de3939"};
 
+// TODO: some sort of error?????
+
 IdiomApp.Quiz.prototype = {
 	create: function() {
 		var background = this.add.sprite(0, 0, "gradientBkgd");
@@ -50,17 +52,34 @@ IdiomApp.Quiz.prototype = {
 	},
 	
 	generateChoices: function() {	
-		var randDef1 = this.rnd.pick(IdiomApp.defintionsList);
-		var randDef2 = this.rnd.pick(IdiomApp.defintionsList);
-		var correctDef = IdiomApp.defintionsList[idiomNum];
+		var randDef1 = this.rnd.between(0, IdiomApp.idiomsList.length - 1);
+		var randDef2 = this.rnd.between(0, IdiomApp.idiomsList.length - 1);
 		
-		var answerChoices = [randDef1, randDef2, correctDef];
+		// make sure the two random ones are different
+		while (randDef2 == randDef1) {
+			randDef2 = this.rnd.between(0, IdiomApp.idiomsList.length);
+		}
+		// make sure the random choices aren't the correct answer
+		while (randDef1 == idiomNum) {
+			   randDef1 = this.rnd.between(0, IdiomApp.idiomsList.length);
+		}
+		while (randDef2 == idiomNum) {
+			   var randDef2 = this.rnd.between(0, IdiomApp.idiomsList.length);
+		}
 		
-		for (i = 0; i < 3; i++) {
-			choices[i].text = answerChoices[i];
+		var answerChoices = [randDef1, randDef2, idiomNum]; // 3 random indexes from the definitions array
+		
+		for (i = 0; i < 3; i++) {			
+			var randIndex = this.rnd.integerInRange(0, answerChoices.length - 1);
+			while (answerChoices[randIndex] == -1) {
+				randIndex = this.rnd.integerInRange(0, answerChoices.length - 1); // make sure the index hasn't been used before
+			}
+			
+			choices[i].text = IdiomApp.defintionsList[answerChoices[randIndex]];
 			choices[i].events.onInputDown.removeAll(this);
 			choices[i].events.onInputDown.add(this.checkAnswer, this, 0, choices[i]);
 			choices[i].setStyle(choiceStyle);
+			answerChoices[randIndex] = -1;
 		}
 	},
 	
