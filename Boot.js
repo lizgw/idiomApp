@@ -10,7 +10,18 @@ var IdiomApp = {
 		"To feel under the weather",
 		"A piece of cake",
 		"Swamped",
-		"To hit the hay"
+		"To hit the hay",
+		"To talk face to face",
+		"Barking up the wrong tree",
+		"To cut corners",
+		"To kill two birds with one stone",
+		"Once in a blue moon",
+		"The whole nine yards",
+		"To cost an arm and a leg",
+		"To add insult to injury",
+		"To go the extra mile",
+		"To dig in your heels",
+		"To step up your game"
 	],
 	defintionsList: [
 		"To die",
@@ -23,7 +34,18 @@ var IdiomApp = {
 		"To feel sick",
 		"A task that is easy to do",
 		"Very busy",
-		"To go to sleep"
+		"To go to sleep",
+		"To talk in person",
+		"Looking in the wrong place",
+		"To do something poorly/quickly to save time/money",
+		"To accomplish two tasks at once",
+		"Something that happens rarely",
+		"Everything",
+		"Something very expensive",
+		"To make a situation worse",
+		"To put in extra effort",
+		"To refuse to compromise",
+		"To start working harder/better"
 	]
 };
 
