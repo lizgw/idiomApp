@@ -8,15 +8,13 @@ var choiceStyle;
 
 var frontProgressBar;
 var percentage;
-var incorrectStyle = {font: "42px Baloo", fill: "#de3939"};
-
-// TODO: some sort of error?????
+var incorrectStyle = { font: "42px Baloo", fill: "#de3939", align: "left", wordWrap: "true", wordWrapWidth: "750" };
 
 IdiomApp.Quiz.prototype = {
 	create: function() {
 		var background = this.add.sprite(0, 0, "gradientBkgd");
 		
-		choiceStyle = { font: "42px Baloo", fill: "#ffffff", align: "center", wordWrap: "true", wordWrapWidth: "800" };
+		choiceStyle = { font: "42px Baloo", fill: "#ffffff", align: "left", wordWrap: "true", wordWrapWidth: "750" };
 		var idiomStyle = { font: "72px Baloo", fill: "#ffffff", align: "center", wordWrap: "true", wordWrapWidth: "800" };
 		
 		idiomNum = 0;
@@ -42,7 +40,7 @@ IdiomApp.Quiz.prototype = {
 	
 	initChoices: function() {
 		for (i = 0; i < 3; i++) {
-			choices[i] = this.add.text(50, 200 + 50 * i, "", choiceStyle);
+			choices[i] = this.add.text(50, 200 + 100 * i, "", choiceStyle);
 			choices[i].inputEnabled = true;
 		}
 	},
