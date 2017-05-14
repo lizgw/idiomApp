@@ -58,7 +58,7 @@ IdiomApp.Boot.prototype = {
 		this.scale.pageAlignHorizontally = true;
 		this.scale.scaleMode = Phaser.ScaleManager.SHOW_ALL;
 		this.scale.setMinMax(400, 300, 800, 600);
-		this.scale.forceLandscape = true;
+		//this.scale.forceLandscape = true;
 		this.scale.pageAlignHorizontally = true;
     },
 
